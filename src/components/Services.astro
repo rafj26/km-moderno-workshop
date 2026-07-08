@@ -1,0 +1,74 @@
+---
+import WhatsappCTA from "./WhatsappCTA.astro";
+
+const services = [
+  {
+    title: "Electromecánica y Diagnóstico Avanzado",
+    code: "OBD-II · CAN-BUS",
+    description:
+      "Diagnóstico computarizado con escáner profesional para identificar la causa real del testigo Check Engine, fallas eléctricas intermitentes, sensores y sistemas de inyección.",
+    message:
+      "Hola, quiero cotizar un diagnóstico electromecánico (escáner). Mi auto es un [Marca/Modelo] año [Año].",
+    icon: "diagnostic",
+  },
+  {
+    title: "Aire Acondicionado Automotriz",
+    code: "R-134a · R-1234yf",
+    description:
+      "Carga de gas refrigerante, detección de fugas en el sistema, cambio de compresor y mantenimiento preventivo para que tu aire enfríe como el primer día.",
+    message:
+      "Hola, necesito revisar el aire acondicionado de mi auto. Es un [Marca/Modelo] año [Año].",
+    icon: "ac",
+  },
+  {
+    title: "Mecánica Integral",
+    code: "FRENOS · SUSPENSIÓN · DIRECCIÓN",
+    description:
+      "Frenos, suspensión, dirección y revisión pre-compra de autos usados: un chequeo honesto antes de que tomes una decisión importante.",
+    message:
+      "Hola, quiero agendar mecánica integral / revisión pre-compra. Es un [Marca/Modelo] año [Año].",
+    icon: "wrench",
+  },
+];
+---
+
+<section id="servicios" class="border-t border-brand-border/60 bg-brand-surface/30 px-5 py-20 md:px-10">
+  <div class="mx-auto max-w-6xl">
+    <p class="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-brand-teal">scan://servicios</p>
+    <h2 class="max-w-2xl font-display text-3xl font-semibold uppercase leading-tight text-brand-text md:text-4xl">
+      Servicios especializados a domicilio
+    </h2>
+    <p class="mt-4 max-w-2xl text-brand-muted">
+      Mecánico electromecánico con equipo propio de escáner automotriz: diagnóstico
+      preciso, aire acondicionado y mecánica integral, sin pasar por un taller.
+    </p>
+
+    <div class="mt-12 grid gap-6 md:grid-cols-3">
+      {
+        services.map((service) => (
+          <article class="flex flex-col rounded-2xl border border-brand-border bg-brand-surface p-4 transition-colors hover:border-brand-orange/50 sm:p-6">
+            <span class="mb-4 inline-flex w-fit items-center rounded-full border border-brand-teal/40 px-3 py-1 font-mono text-[11px] uppercase tracking-wide text-brand-teal">
+              {service.code}
+            </span>
+
+            <h3 class="font-display text-lg font-semibold uppercase text-brand-text sm:text-xl">
+              {service.title}
+            </h3>
+
+            <p class="mt-3 flex-1 text-sm leading-relaxed text-brand-muted">
+              {service.description}
+            </p>
+
+            <WhatsappCTA
+              message={service.message}
+              label="Cotizar este servicio"
+              variant="outline"
+              size="md"
+              class="mt-6 w-fit"
+            />
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

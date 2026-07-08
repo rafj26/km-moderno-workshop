@@ -1,0 +1,118 @@
+---
+import "../styles/global.css";
+import { site } from "../data/site.js";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import FloatingWhatsapp from "../components/FloatingWhatsapp.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Kilometro Moderno Workshop | Electromecánica, Aire Acondicionado y Escáner Automotriz",
+  description = site.description,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+// JSON-LD para SEO Local (schema.org). AutoRepair es subtipo de LocalBusiness,
+// ideal para un técnico que atiende a domicilio (sin dirección fija de taller).
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  name: site.name,
+  image: `${Astro.site}images/og-image.jpg`,
+  description: site.description,
+  telephone: `+${site.phoneRaw}`,
+  priceRange: "$$",
+  areaServed: site.areaServed.flatMap((zone) =>
+    zone.cities.map((city) => ({ "@type": "City", name: city }))
+  ),
+  address: {
+    "@type": "PostalAddress",
+    addressRegion: "Panamá",
+    addressCountry: "PA",
+  },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    opens: "15:00",
+    closes: "21:00",
+  },
+  makesOffer: [
+    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Diagnóstico por escáner automotriz" } },
+    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Reparación de aire acondicionado automotriz" } },
+    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Mecánica integral (frenos, suspensión, dirección)" } },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0B1622" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content={site.keywords}
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / redes sociales -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_PA" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={`${Astro.site}images/og-image.jpg`} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${Astro.site}images/og-image.jpg`} />
+
+    <!-- Geo tags: refuerzan la señal de SEO local para Panamá Oeste -->
+    <meta name="geo.region" content="PA-8" />
+    <meta name="geo.placename" content="La Chorrera, Arraiján, Panamá" />
+
+    <!-- Favicon e ícono para iOS "Añadir a pantalla de inicio" -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Fuentes: preconnect + display=swap para no bloquear el render (Core Web Vitals) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap"
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body class="bg-brand-bg font-sans text-brand-text antialiased selection:bg-brand-orange">
+    <a
+      href="#contenido"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-brand-orange focus:px-4 focus:py-2 focus:text-brand-bg focus:font-semibold"
+    >
+      Saltar al contenido
+    </a>
+
+    <Header />
+
+    <main id="contenido">
+      <slot />
+    </main>
+
+    <Footer />
+    <FloatingWhatsapp />
+  </body>
+</html>

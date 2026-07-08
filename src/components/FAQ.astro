@@ -1,0 +1,56 @@
+---
+const faqs = [
+  {
+    q: "¿Cuánto cuesta un diagnóstico por escáner en Panamá?",
+    a: "El precio depende de la marca y del tipo de falla, pero siempre te doy el diagnóstico honesto por WhatsApp antes de cualquier reparación, con el código exacto que arroja el escáner y las opciones para solucionarlo. Escríbeme con la marca, modelo y año para darte un estimado.",
+  },
+  {
+    q: "¿Atienden a domicilio en Arraiján y La Chorrera fuera de horario laboral?",
+    a: "Sí. Trabajo de forma independiente en las tardes, noches y fines de semana en todo el corredor de Panamá Oeste (La Chorrera, Arraiján, Vista Alegre, Costa Verde) y también en la Ciudad de Panamá, con cita previa por WhatsApp.",
+  },
+  {
+    q: "¿Qué diferencia hay entre un mecánico de confianza y un taller grande?",
+    a: "Conmigo tratas directo con el técnico que revisa tu auto, sin intermediarios ni recargos de taller. Uso mi propio escáner profesional y te explico cada hallazgo antes de tocar el vehículo, para que decidas con información clara.",
+  },
+  {
+    q: "¿Puedo pedir una revisión pre-compra de un carro usado antes de comprarlo?",
+    a: "Sí, es uno de los servicios más pedidos. Incluye escaneo computarizado del motor y revisión de frenos, suspensión, dirección y posibles fugas, para que no te lleves sorpresas después de comprar.",
+  },
+  {
+    q: "¿Trabajan con carga de gas refrigerante R-134a y R-1234yf?",
+    a: "Sí, atiendo ambos tipos de sistema de aire acondicionado automotriz. Antes de recargar gas, reviso si hay fugas para que el arreglo dure y no vuelvas a quedarte sin aire frío en pocas semanas.",
+  },
+  {
+    q: "¿Cómo agendo una cita?",
+    a: "Escríbeme por WhatsApp indicando la marca, modelo y año de tu auto, junto con el síntoma o servicio que necesitas. Te respondo directo para coordinar día, hora y zona de la visita.",
+  },
+];
+---
+
+<section id="preguntas" class="border-t border-brand-border/60 bg-brand-surface/30 px-5 py-20 md:px-10">
+  <div class="mx-auto max-w-3xl">
+    <p class="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-brand-teal">scan://preguntas</p>
+    <h2 class="font-display text-3xl font-semibold uppercase leading-tight text-brand-text md:text-4xl">
+      Preguntas frecuentes
+    </h2>
+
+    <div class="mt-10 space-y-3">
+      {
+        faqs.map((faq) => (
+          <details class="group rounded-xl border border-brand-border bg-brand-surface open:border-brand-teal/50">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-3 p-4 font-display text-sm font-semibold uppercase tracking-wide text-brand-text sm:gap-4 sm:p-5 sm:text-base [&::-webkit-details-marker]:hidden">
+              {faq.q}
+              <span
+                aria-hidden="true"
+                class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-brand-orange text-brand-orange transition-transform duration-200 group-open:rotate-45"
+              >
+                +
+              </span>
+            </summary>
+            <div class="px-4 pb-4 text-sm leading-relaxed text-brand-muted sm:px-5 sm:pb-5">{faq.a}</div>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>

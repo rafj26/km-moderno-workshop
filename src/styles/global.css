@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem; /* compensa el header sticky al hacer scroll con anclas */
+  }
+
+  body {
+    background-color: theme("colors.brand.bg");
+    color: theme("colors.brand.text");
+  }
+
+  /* Foco visible accesible en todos los elementos interactivos */
+  :focus-visible {
+    outline: 2px solid theme("colors.brand.teal");
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background-color: theme("colors.brand.orange");
+    color: theme("colors.brand.bg");
+  }
+}
+
+@layer utilities {
+  /* Oculta la barra de scroll del carrusel de portafolio sin perder funcionalidad */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Quita el triángulo nativo del <summary> en todos los navegadores (usamos ícono +/x propio) */
+  summary {
+    list-style: none;
+  }
+  summary::-webkit-details-marker,
+  summary::marker {
+    display: none;
+    content: "";
+  }
+}
+
+/* Respeta a quienes prefieren menos movimiento (accesibilidad) */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

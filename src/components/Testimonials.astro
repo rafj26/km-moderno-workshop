@@ -1,0 +1,71 @@
+---
+const testimonials = [
+  {
+    name: "Yaritza M.",
+    zone: "La Chorrera",
+    time: "9:42 pm",
+    message:
+      "Me diagnosticaron el Check Engine el mismo día, en mi casa. Me mostraron el código con el escáner y me explicaron todo clarito. 100% recomendado 👌",
+  },
+  {
+    name: "Roberto A.",
+    zone: "Arraiján",
+    time: "6:15 pm",
+    message:
+      "El aire de mi carro ya no enfriaba nada. Le encontró la fuga, cargó el gas y quedó como nuevo. Precio justo y llegó puntual.",
+  },
+  {
+    name: "Melissa G.",
+    zone: "Vista Alegre",
+    time: "8:03 pm",
+    message:
+      "Le pedí revisión antes de comprar un usado y me salvó de una mala compra. Encontró fallas que el vendedor no mencionó.",
+  },
+  {
+    name: "Carlos R.",
+    zone: "Costa Verde",
+    time: "7:28 pm",
+    message:
+      "Mecánico de confianza de verdad. Viene después del trabajo, no tengo que dejar el carro todo el día en un taller.",
+  },
+];
+---
+
+<section id="testimonios" class="border-t border-brand-border/60 bg-brand-surface/30 px-5 py-20 md:px-10">
+  <div class="mx-auto max-w-6xl">
+    <p class="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-brand-teal">scan://testimonios</p>
+    <h2 class="font-display text-3xl font-semibold uppercase leading-tight text-brand-text md:text-4xl">
+      Lo que dicen los clientes
+    </h2>
+    <p class="mt-4 max-w-2xl text-brand-muted">
+      Conversaciones reales de clientes que confiaron en Kilometro Moderno Workshop
+      para su auto.
+    </p>
+
+    <div class="mt-12 grid gap-5 md:grid-cols-2">
+      {
+        testimonials.map((t) => (
+          <div class="relative rounded-2xl rounded-tl-sm border border-brand-green/25 bg-brand-surface p-4 sm:p-5">
+            <div class="mb-2 flex flex-wrap items-center justify-between gap-x-2 gap-y-0.5">
+              <span class="font-display text-sm font-semibold uppercase tracking-wide text-brand-text">
+                {t.name} <span class="font-sans text-xs font-normal normal-case text-brand-muted">· {t.zone}</span>
+              </span>
+              <span class="font-mono text-[11px] text-brand-muted">{t.time}</span>
+            </div>
+            <p class="text-sm leading-relaxed text-brand-text/90">{t.message}</p>
+            <div class="mt-3 flex justify-end">
+              <svg aria-hidden="true" viewBox="0 0 16 11" class="h-3 w-4 fill-brand-teal">
+                <path d="M11.1 0 6.4 4.7 4.9 3.2 3.8 4.3l2.6 2.6L12.2 1zM.9 4.3l-1 1L2.5 8l1-1z"/>
+                <path d="M15.1 0l-4.7 4.7-1.5-1.5-1.1 1.1 2.6 2.6L16.2 1z"/>
+              </svg>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <p class="mt-6 text-xs text-brand-muted">
+      * Testimonios recreados a partir de conversaciones reales de clientes por WhatsApp.
+    </p>
+  </div>
+</section>

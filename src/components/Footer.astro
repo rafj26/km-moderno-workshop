@@ -1,0 +1,56 @@
+---
+import WhatsappCTA from "./WhatsappCTA.astro";
+import { site, defaultWaMessage } from "../data/site.js";
+
+const links = [
+  { href: "#servicios", label: "Servicios" },
+  { href: "#trabajos", label: "Trabajos" },
+  { href: "#testimonios", label: "Testimonios" },
+  { href: "#cobertura", label: "Cobertura" },
+  { href: "#preguntas", label: "Preguntas" },
+];
+---
+
+<footer class="border-t border-brand-border/60 px-5 py-12 md:px-10">
+  <div class="mx-auto flex max-w-6xl flex-col gap-10 md:flex-row md:items-start md:justify-between">
+    <div class="max-w-sm">
+      <p class="font-display text-lg font-semibold uppercase tracking-wide text-brand-text">
+        <span class="text-brand-orange">Kilometro Moderno</span> Workshop
+      </p>
+      <p class="mt-2 text-sm text-brand-muted">{site.tagline}</p>
+
+      <dl class="mt-4 space-y-1 text-sm text-brand-muted">
+        <div class="flex gap-2">
+          <dt class="font-medium text-brand-text">Teléfono:</dt>
+          <dd><a href={`tel:+${site.phoneRaw}`} class="hover:text-brand-orange">{site.phoneDisplay}</a></dd>
+        </div>
+        <div class="flex gap-2">
+          <dt class="font-medium text-brand-text">Horario:</dt>
+          <dd>{site.hours}</dd>
+        </div>
+        <div class="flex gap-2">
+          <dt class="font-medium text-brand-text">Cobertura:</dt>
+          <dd>Panamá Oeste y Ciudad de Panamá</dd>
+        </div>
+      </dl>
+    </div>
+
+    <nav aria-label="Navegación del pie de página" class="flex flex-col gap-2 text-sm">
+      {
+        links.map((link) => (
+          <a href={link.href} class="text-brand-muted transition-colors hover:text-brand-teal">
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div>
+      <WhatsappCTA message={defaultWaMessage} label="Escribir ahora" variant="primary" />
+    </div>
+  </div>
+
+  <div class="mx-auto mt-10 max-w-6xl border-t border-brand-border/60 pt-6 text-xs text-brand-muted">
+    © {new Date().getFullYear()} Kilometro Moderno Workshop. Técnico automotriz independiente en Panamá.
+  </div>
+</footer>

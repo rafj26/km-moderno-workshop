@@ -1,0 +1,109 @@
+---
+import WhatsappCTA from "./WhatsappCTA.astro";
+import { site, defaultWaMessage } from "../data/site.js";
+---
+
+<section id="inicio" class="relative overflow-hidden px-5 pb-16 pt-12 md:px-10 md:pb-24 md:pt-16">
+  <!-- Textura de fondo sutil tipo "grid de osciloscopio", puramente decorativa -->
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute inset-0 opacity-[0.07]"
+    style="background-image:linear-gradient(theme(colors.brand.teal) 1px, transparent 1px),linear-gradient(90deg, theme(colors.brand.teal) 1px, transparent 1px);background-size:36px 36px;"
+  >
+  </div>
+
+  <div class="relative mx-auto grid max-w-6xl gap-10 md:grid-cols-2 md:items-center md:gap-8">
+    <div>
+      <p class="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-brand-teal">
+        scan://técnico&nbsp;certificado&nbsp;·&nbsp;servicio&nbsp;a&nbsp;domicilio
+      </p>
+
+      <h1 class="font-display text-4xl font-semibold uppercase leading-[1.05] text-brand-text sm:text-5xl md:text-6xl">
+        Kilometro <span class="text-brand-orange">Moderno</span> Workshop
+      </h1>
+
+      <p class="mt-5 max-w-xl text-base leading-relaxed text-brand-muted md:text-lg">
+        Diagnóstico computarizado y mecánica integral a domicilio, sin cita en
+        un taller ni tiempos de espera. Técnico certificado, herramientas
+        profesionales y <strong class="text-brand-text">escáner automotriz propio</strong> en
+        Panamá Oeste y Ciudad de Panamá.
+      </p>
+
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <WhatsappCTA
+          message={defaultWaMessage}
+          label="Pedir diagnóstico por WhatsApp"
+          variant="primary"
+          size="lg"
+          class="w-full sm:w-auto"
+        />
+        <a
+          href={`tel:+${site.phoneRaw}`}
+          class="inline-flex w-full items-center justify-center gap-2 rounded-full border-2 border-brand-orange px-7 py-4 font-display text-base font-semibold uppercase tracking-wide text-brand-orange transition-colors hover:bg-brand-orange/10 sm:w-auto"
+        >
+          Llamar ahora
+        </a>
+      </div>
+
+      <ul class="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-brand-muted">
+        <li class="flex items-center gap-2">
+          <span class="h-1.5 w-1.5 rounded-full bg-brand-teal"></span>
+          Técnico certificado
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="h-1.5 w-1.5 rounded-full bg-brand-teal"></span>
+          Escáner profesional propio
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="h-1.5 w-1.5 rounded-full bg-brand-teal"></span>
+          Atiende en La Chorrera y Arraiján
+        </li>
+      </ul>
+    </div>
+
+    <!-- Panel HUD de diagnóstico: elemento visual de firma ligado al "escáner profesional" -->
+    <div class="relative">
+      <div
+        class="relative overflow-hidden rounded-2xl border border-brand-teal/30 bg-brand-surface p-4 font-mono shadow-2xl shadow-black/40 sm:p-6"
+      >
+        <div
+          aria-hidden="true"
+          class="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-brand-teal/25 to-transparent motion-safe:animate-scanline"
+        >
+        </div>
+
+        <div class="mb-4 flex items-center justify-between border-b border-brand-border pb-3">
+          <span class="text-xs uppercase tracking-widest text-brand-muted">Panel de diagnóstico</span>
+          <span class="flex items-center gap-1.5 text-xs text-brand-teal">
+            <span class="h-1.5 w-1.5 rounded-full bg-brand-teal"></span>
+            en línea
+          </span>
+        </div>
+
+        <dl class="space-y-3 text-xs sm:text-sm">
+          <div class="flex items-center justify-between">
+            <dt class="text-brand-muted">SISTEMA MOTOR</dt>
+            <dd class="text-brand-teal">SIN CÓDIGOS · OK</dd>
+          </div>
+          <div class="flex items-center justify-between">
+            <dt class="text-brand-muted">BATERÍA</dt>
+            <dd class="text-brand-text">12.6&nbsp;V</dd>
+          </div>
+          <div class="flex items-center justify-between">
+            <dt class="text-brand-muted">A/C · PRESIÓN GAS</dt>
+            <dd class="text-brand-text">EN RANGO</dd>
+          </div>
+          <div class="flex items-center justify-between">
+            <dt class="text-brand-muted">PROTOCOLO</dt>
+            <dd class="text-brand-text">OBD-II / CAN-BUS</dd>
+          </div>
+        </dl>
+
+        <p class="mt-5 border-t border-brand-border pt-4 text-xs leading-relaxed text-brand-muted">
+          Así de claro te explicamos lo que encontramos en tu auto: sin
+          tecnicismos, con el código exacto y la solución recomendada.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

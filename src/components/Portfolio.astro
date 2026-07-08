@@ -1,0 +1,62 @@
+---
+const trabajos = [
+  {
+    src: "/images/trabajos/trabajo-1.svg",
+    alt: "Diagnóstico por escáner automotriz a vehículo en Arraiján, Panamá",
+    caption: "Diagnóstico OBD-II · Arraiján",
+  },
+  {
+    src: "/images/trabajos/trabajo-2.svg",
+    alt: "Carga de gas refrigerante de aire acondicionado automotriz en La Chorrera",
+    caption: "Carga de gas R-134a · La Chorrera",
+  },
+  {
+    src: "/images/trabajos/trabajo-3.svg",
+    alt: "Revisión de frenos y suspensión de auto en Vista Alegre, Panamá Oeste",
+    caption: "Frenos y suspensión · Vista Alegre",
+  },
+  {
+    src: "/images/trabajos/trabajo-4.svg",
+    alt: "Revisión pre-compra de auto usado en Costa Verde, Panamá",
+    caption: "Revisión pre-compra · Costa Verde",
+  },
+];
+---
+
+<section id="trabajos" class="px-5 py-20 md:px-10">
+  <div class="mx-auto max-w-6xl">
+    <p class="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-brand-teal">scan://trabajos</p>
+    <h2 class="font-display text-3xl font-semibold uppercase leading-tight text-brand-text md:text-4xl">
+      Trabajos realizados
+    </h2>
+    <p class="mt-4 max-w-2xl text-brand-muted">
+      Un vistazo real a diagnósticos, reparaciones de aire acondicionado y
+      mantenimiento hechos a domicilio en Panamá Oeste y la Ciudad.
+    </p>
+  </div>
+
+  <div class="mx-auto mt-10 max-w-6xl">
+    <div
+      class="scrollbar-hide -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 md:mx-0 md:px-0"
+      role="region"
+      aria-label="Galería de trabajos realizados"
+    >
+      {
+        trabajos.map((trabajo) => (
+          <figure class="w-72 shrink-0 snap-start overflow-hidden rounded-2xl border border-brand-border bg-brand-surface md:w-80">
+            <img
+              src={trabajo.src}
+              alt={trabajo.alt}
+              width="800"
+              height="600"
+              loading="lazy"
+              decoding="async"
+              class="h-48 w-full object-cover"
+            />
+            <figcaption class="p-4 text-sm text-brand-muted">{trabajo.caption}</figcaption>
+          </figure>
+        ))
+      }
+    </div>
+  </div>
+</section>

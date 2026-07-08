@@ -1,0 +1,53 @@
+---
+import WhatsappCTA from "./WhatsappCTA.astro";
+import { site } from "../data/site.js";
+---
+
+<section id="cobertura" class="px-5 py-20 md:px-10">
+  <div class="mx-auto max-w-6xl">
+    <p class="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-brand-teal">scan://cobertura</p>
+    <h2 class="font-display text-3xl font-semibold uppercase leading-tight text-brand-text md:text-4xl">
+      Zona de cobertura
+    </h2>
+    <p class="mt-4 max-w-2xl text-brand-muted">
+      Servicio de mecánico a domicilio en el corredor de Panamá Oeste y la
+      Ciudad de Panamá. Llevo mis propias herramientas y escáner, listo para
+      trabajar donde estés.
+    </p>
+
+    <div class="mt-10 grid gap-8 md:grid-cols-2">
+      {
+        site.areaServed.map((zone) => (
+          <div class="rounded-2xl border border-brand-border bg-brand-surface p-4 sm:p-6">
+            <h3 class="font-display text-lg font-semibold uppercase tracking-wide text-brand-orange">
+              {zone.region}
+            </h3>
+            <ul class="mt-4 space-y-2">
+              {zone.cities.map((city) => (
+                <li class="flex items-center gap-2 text-sm text-brand-muted">
+                  <svg aria-hidden="true" viewBox="0 0 20 20" class="h-4 w-4 shrink-0 fill-brand-teal">
+                    <path d="M10 2a6 6 0 0 0-6 6c0 4.2 6 10 6 10s6-5.8 6-10a6 6 0 0 0-6-6zm0 8.2A2.2 2.2 0 1 1 10 5.8a2.2 2.2 0 0 1 0 4.4z" />
+                  </svg>
+                  {city}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="mt-10 flex flex-col items-start gap-4 rounded-2xl border border-brand-border bg-brand-surface/60 p-4 sm:flex-row sm:items-center sm:justify-between sm:p-6">
+      <p class="text-sm text-brand-muted">
+        ¿No ves tu zona en la lista? Escríbenos: seguimos ampliando la cobertura
+        cada mes.
+      </p>
+      <WhatsappCTA
+        message="Hola, quisiera saber si cubren mi zona en Panamá."
+        label="Preguntar por mi zona"
+        variant="outline"
+        class="w-full sm:w-auto"
+      />
+    </div>
+  </div>
+</section>

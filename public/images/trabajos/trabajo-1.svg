@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <rect width="800" height="600" fill="#122032"/>
+  <rect width="800" height="600" fill="none" stroke="#24405C" stroke-width="2"/>
+  <g stroke="#2FD4C9" stroke-width="3" fill="none" opacity="0.9">
+    <circle cx="400" cy="300" r="90"/>
+    <circle cx="400" cy="300" r="14" fill="#2FD4C9"/>
+    <path d="M400 210 v-30 M400 390 v30 M490 300 h30 M310 300 h-30 M463 237 l21-21 M337 363 l-21 21 M463 363 l21 21 M337 237 l-21-21"/>
+  </g>
+  <text x="400" y="520" fill="#93A7BC" font-family="monospace" font-size="20" text-anchor="middle">DIAGNOSTICO OBD-II · ARRAIJÁN</text>
+</svg>
