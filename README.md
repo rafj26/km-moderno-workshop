@@ -4,7 +4,7 @@ Landing page one-page construida en **Astro + Tailwind CSS**, optimizada para
 SEO local en Panamá Oeste (La Chorrera, Arraiján, Vista Alegre, Costa Verde) y
 Ciudad de Panamá, con captura de leads directa a WhatsApp.
 
-## 🚀 Instalación
+## Instalación
 
 ```bash
 npm install
@@ -15,18 +15,18 @@ npm run preview   # sirve el build de producción localmente
 
 Requiere Node.js 18+.
 
-## ✅ Checklist antes de publicar
+## Checklist antes de publicar
 
-1. ✅ **Teléfono configurado** → `src/data/site.js` — `phoneRaw: "50766207896"` / `phoneDisplay: "+507 6620-7896"`.
+1. **Teléfono configurado** → `src/data/site.js` — `phoneRaw: "50766207896"` / `phoneDisplay: "+507 6620-7896"`.
 2. **Dominio real** → editar `site` en `astro.config.mjs` (actualmente `https://www.chentetechcar.com`; afecta el `canonical`, Open Graph, Twitter Card y el sitemap automático).
 3. **Fotos reales de trabajos** → reemplazar los SVG de `public/images/trabajos/` por fotos optimizadas (`.webp` o `.jpg`, idealmente < 150 KB c/u) en `src/components/Portfolio.astro`.
-4. ✅ **Imagen Open Graph** → `public/images/og-image.jpg` generada (1200×630 px, colores de marca). Reemplazar si se dispone de fotografía real del negocio.
+4. **Imagen Open Graph** → `public/images/og-image.jpg` generada (1200×630 px, colores de marca). Reemplazar si se dispone de fotografía real del negocio.
 5. **Favicon real** → reemplazar `public/favicon.svg` por el logo real.
-6. ✅ **Apple Touch Icon** → `public/apple-touch-icon.png` generado (180×180 px). Reemplazar por versión con logo real cuando esté disponible.
+6. **Apple Touch Icon** → `public/apple-touch-icon.png` generado (180×180 px). Reemplazar por versión con logo real cuando esté disponible.
 7. **Testimonios** → son textos recreados; sustituir por capturas o citas reales de clientes en `src/components/Testimonials.astro`.
 8. Revisar el `JSON-LD` (`AutoRepair`) en `src/layouts/Layout.astro` — ajustar horarios y zonas si cambian.
 
-## 🧱 Estructura de componentes
+## Estructura de componentes
 
 ```
 src/
@@ -46,7 +46,7 @@ src/
 └─ pages/index.astro     → ensambla todas las secciones
 ```
 
-## ⚡ Notas de rendimiento (Core Web Vitals)
+## Notas de rendimiento (Core Web Vitals)
 
 - **Cero JavaScript de framework**: Astro renderiza HTML estático; el único
   "JS" del sitio es nativo del navegador (`<details>` para el FAQ, scroll-snap
@@ -59,7 +59,7 @@ src/
 - Antes de producción: pasar las fotos reales por un optimizador (`.webp`,
   `astro:assets`, o un servicio como Squoosh) para mantener el LCP bajo.
 
-## 🔍 SEO local
+## SEO local
 
 - **Meta tags completos** en `<head>`: `title`, `description`, `keywords`,
   `robots`, `canonical`.
@@ -81,7 +81,7 @@ src/
 - Copys con keywords long-tail integradas de forma natural (diagnóstico por
   escáner, aire acondicionado automotriz, mecánico a domicilio, etc.).
 
-## 📱 Diseño responsive
+## Diseño responsive
 
 - **Mobile-first**: todos los componentes usan clases Tailwind sin prefijo
   para móvil y `sm:` / `md:` para pantallas más grandes.
@@ -98,7 +98,7 @@ src/
 - `viewport-fit=cover` en el meta viewport para dispositivos con notch.
 - `prefers-reduced-motion` respetado en todas las animaciones CSS.
 
-## 🎨 Sistema de diseño
+## Sistema de diseño
 
 | Token | Valor | Uso |
 |---|---|---|
